@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>OnlyCars official website</title>
+
+  <!-- font awesome cdn link-->
+  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+  <!-- custom css file link-->
+  <link rel = "stylesheet" href = "styles.css">
+</head>
+
+<body>
+  <!--header starts-->
+  <header>
+    <input type="checkbox" name = "" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+
+      <a href = "#" class = "logo">Only<span>Cars</span></a>
+
+      <nav class = "navbar">
+           <a href ="#home"  style="--i:1;">home</a>
+           <a href="#quote" style="--i:2;">about</a>
+            <a href="#products" style="--i:3;">products</a>
+            <a href="#review" style="--i:2;">review</a>
+            <a href="contact" style="--i:1;">contact</a>
+      </nav>
+
+    <div class = "icons">
+      <a id="heart" style="--i:1;" class="fas fa-heart"></a>
+      <a id="cart"  style="--i:2;"class="fas fa-shopping-cart"></a>
+      <a id="profile" style="--i:3;" class="fas fa-user"></a>
+    </div>
+
+  </header>
+  <!--header ends-->
+  <!-----home begins-->
+  <section class="home" id="home">
+    <div class="content">
+        <!-- Background videos --->
+        <video class = "back-video" src = "images/background_1.mp4" autoplay loop muted plays-inline></video>
+        <video class = "back-video" src = "images/background_2.mp4" autoplay loop muted plays-inline></video>             
+        <h1>Start your journey here</h1>
+        <a href="#quote" class = home_button>Explore</a>
+    </div>
+    <div class="slider-navigation">
+        <div class="nav-btn active"></div>
+        <div class="nav-btn"></div>
+    </div>
+</section>
+<script type = "text/javascript">
+    const btns = document.querySelectorAll(".nav-btn");
+    const videos = document.querySelectorAll(".back-video"); // Select all background videos
+
+    var sliderNav = function(manual) {
+    btns.forEach((btn) => {
+    btn.classList.remove("active");
+    });
+     btns[manual].classList.add("active");
+
+    // Hide all videos
+    videos.forEach((video) => {
+    video.style.display = "none";
+    });
+
+    // Display the video corresponding to the active button
+    videos[manual].style.display = "block";
+    };
+
+    btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+    sliderNav(i);
+    });
+   });   
+
+   //make the button spin
+   document.querySelector('.home_button').addEventListener('click', function(){
+    this.classList.remove('rotate'); // Remove rotate class if present
+    void this.offsetWidth; // Trigger reflow to restart the animation
+    this.classList.add('rotate'); // Add rotate class again
+    this.style.opacity = '1';
+   });
+   
+</script>
+
+ <!-----home sections ends-->
+ <!-----quote sections begins-->
+ <section class="quote" id="quote">
+  <video class = "video-container" autoplay loop muted plays-inline>
+      <source src = "images/quote_background.mp4" type="video/mp4">
+  </video>
+      <div class="text-area">
+          <span class="hidden fancy-text">Each</span>
+          <span class="hidden fancy-text">journey</span>
+          <span class="hidden fancy-text">begins</span>
+          <span class="hidden fancy-text">with</span>
+          <span class="hidden fancy-text">a</span>
+          <span class="hidden fancy-text">single</span>
+          <span class="hidden fancy-text">pedal</span>
+      </div>
+      <div class="writer">- Only<span class = "word">Cars</span>
+      </div>
+      <script>
+        const hiddenElements = document.querySelectorAll('.hidden');
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+        console.log(entry);
+        if (entry.isIntersecting) {
+        showWords(); // Call the showWords function when an element is intersecting
+        } else {
+          entry.target.classList.remove('show');
+          currentIndex = 0;
+         }
+       });
+      });
+      
+      hiddenElements.forEach((el) => observer.observe(el));
+      
+      const wordLength = hiddenElements.length;
+      let currentIndex = 0;
+      const delay = 200; // Adjust delay as needed
+      
+      function showWords(element) {
+      if (currentIndex < wordLength) {
+           setTimeout(() => {
+           hiddenElements[currentIndex].classList.add('show');
+           currentIndex++;
+           showWords(); // Recursively call showWords for the next element
+         }, delay);
+        }
+       }
+      
+       </script>
+</section>
+
+ <!-----quote sections ends-->
+
+ <!------about us begins-->
+ <section class="about-us">
+  <div class = "wrapper">
+    <div class = "backstory-list">
+     <!-- <input type = "radio" name = "slide" id = "c1" checked> -->
+     <label for = "c1" class = "card">
+       <div class = "row">
+       <div class = "description">
+        <h4>1980s</h4>
+        <p>Established in the bustling city of New York in the early 1980s, OnlyCars began as a modest family-owned car dealership, 
+          catering to the local community's automotive needs. Founded by the visionary entrepreneur, Michael Davidson, and his wife, 
+          Sarah, OnlyCars quickly gained a reputation for its exceptional customer service and high-quality vehicles.</p>
+       </div>
+       </div>
+     </label>
+
+     <!-- <input type = "radio" name = "slide" id = "c2" checked> -->
+     <label for = "c2" class = "card">
+       <div class = "row">
+       <div class = "description">
+        <h4>1990s</h4>
+        <p>Throughout the 1980s and 1990s, OnlyCars flourished, expanding its operations and becoming a trusted name in the automotive industry. With a commitment to honesty, integrity, and transparency, 
+          the dealership garnered a loyal customer base and enjoyed steady growth year after year.</p>
+       </div>
+       </div>
+     </label>
+
+     <!-- <input type = "radio" name = "slide" id = "c3" checked> -->
+     <label for = "c3" class = "card">
+       <div class = "row">
+       <div class = "description">
+        <h4>2000s</h4>
+        <p>In the early 2000s, OnlyCars made a bold decision to pivot from traditional brick-and-mortar sales to an innovative online platform. Leveraging cutting-edge technology and digital marketing strategies, the dealership redefined the car-buying experience, offering customers 
+          the convenience of browsing, financing, and purchasing vehicles from the comfort of their own homes.</p>
+       </div>
+       </div>
+     </label>
+
+     <!-- <input type = "radio" name = "slide" id = "c4" checked> -->
+     <label for = "c4" class = "card">
+       <div class = "row">
+       <div class = "description">
+        <h4>2010s</h4>
+        <p>By the mid-2010s, OnlyCars had solidified its position as a leader in the online car dealership space. With a vast inventory of new and pre-owned vehicles, nationwide shipping options, and a team of knowledgeable automotive experts, the dealership continued to deliver unparalleled service 
+          and value to customers across the country.</p>
+       </div>
+       </div>
+     </label>
+    </div>
+  </div>
+</section>
+ <!------about us ends-->
