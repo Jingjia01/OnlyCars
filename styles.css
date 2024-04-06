@@ -27,7 +27,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background:#fff;;
+    background-color: #fff;
     padding: 2rem 9%;
     display: flex;
     align-items: center;
@@ -54,23 +54,6 @@ header .logo:hover{
 
 header .logo span:hover{
     text-shadow: 0 0 20px var(--blue);
-}
-
-.heading{
-    position:absolute;
-    left: 0; /* Ensures it starts from the left edge */
-    width: 100%; /* Expands horizontally */
-    top:20px;
-    text-align: center;
-    font-size: 4rem;
-    color: #333;
-    padding: 1rem;
-    margin: 2rem 0;
-    color:#fff;
-}
-
-.heading span{
-    color: var(--blue)
 }
 
 .navbar {
@@ -255,14 +238,11 @@ header .fa-bars{
 }
 
 .quote {
-
-    height:100%;
-    width: 100%;
-    position: absolute;
-    max-height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .quote .video-container {
@@ -275,15 +255,13 @@ header .fa-bars{
 
 
 .quote .text-area {
-    position: absolute; /* Position the text area relative to the container */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center align the text area */
-    width: calc(100% - 80px); /* Adjust width as needed */
-    max-width: 2000px; /* Adjust max-width as needed */
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
     padding: 50px 40px;
-    color: #fff; /* Set text color */
-    text-align: center; /* Center align text */ 
+    color: #fff; 
 }
 
 .quote .text-area .fancy-text {
@@ -293,15 +271,14 @@ header .fa-bars{
     color: #fff;
     font-weight: 600;
     opacity: 0; 
-     /* Initial opacity */
-    /* transition: opacity 3s ease;  */
+
 }
 
 .quote .text-area .hidden{
-    /* Initial opacity */
+
     opacity: 0;     
     transition: opacity 3s ease;
-    /* Add transition for smooth opacity change */
+
 }
 
 .quote .text-area .show {
@@ -314,32 +291,13 @@ header .fa-bars{
     text-shadow: 0 0 20px #fff;  
 }
 
-.quote .writer {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    top: 80px;
-    left: 80px;
-    position: relative;
-    transform: translateX(-50%);
-    color: #fff;
-    font-size: 25px;
-    font-weight: 600;
-}
-
-
-.quote .writer .word{
-    color: var(--blue);
-}
 
 .about {
-    
     height:100vh;
     width: 100%;
-    max-height:100vh;
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100vh;
 }
 
 .about .wrapper{
@@ -354,12 +312,33 @@ header .fa-bars{
 
 }
 
+.about .heading {
+    position:absolute;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff; 
+    margin-top: 20px; 
+    text-shadow: 0 0 20px #fff;  
+}
+
+.about .heading span{
+    color: #fff;
+    text-shadow: 0 0 20px #fff;  
+}
+
+.backstory-list{
+    display: flex;
+    justify-content: space-around;
+}
+
+
 .card{
-    width:80px;
+    width:100px;
     border-radius: .25rem;
     background-size: cover;
     height: 500px;
-    width: 50px;
+    width: 80px;
     cursor: pointer;
     overflow: hidden;
     border-radius: 2rem;
@@ -387,28 +366,10 @@ header .fa-bars{
     color: white;
     border-radius: 50%;
     width: 50px;
-    height: 50px; 
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 15px;
-}
-
-.card > .row {
-    color: white;
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.card > .row > .icon {
-    background: #223;
-    color: white;
-    border-radius: 50%;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
+    margin:15px;
 }
 
 .card > .row > .description {
@@ -416,16 +377,19 @@ header .fa-bars{
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
+    height: 80px;
+    width: 520px;
     opacity: 0;
     transform: translateY(30px);
+    margin-left: -80px;
     transition-delay: .3s;
     transition: all .3s ease;
 }
 
-
 .description p {
     color: #fff;
     padding-top: 5px;
+    margin-right: 100px;
 }
 
 .description h4 {
@@ -458,6 +422,246 @@ input:checked + label .description {
     background-image: url('images/img-4.jpg');
 }
 
+
+.products{
+    height:100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(images/product-wallpaper.jpg) no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+
+.products .heading{
+    position:absolute;
+    margin-bottom: 400px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff; 
+    text-shadow: 0 0 20px #fff;
+}
+
+.row {
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+.container-box {
+    position:relative;
+    width: 300px;
+    height: 400px;
+    background: transparent;
+    perspective: 1100px;
+    padding: 0;
+    border: 0;
+    margin-top: 150px;
+}
+
+.container-box:hover .front{
+    transform: rotateY(-180deg);
+}
+
+.front {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: 2s;
+    background: center no-repeat;
+    background-size: cover;
+    transform: rotateY(0deg);
+    z-index: 1;
+}
+
+.item-a {
+    background-image: url(images/product-1.jpg);
+}
+.item-b {
+    background-image: url(images/product-2.jpg);
+}
+.item-c {
+    background-image: url(images/product-3.jpg);
+}
+
+.front::before {
+    content: "";
+    position: absolute;
+    transform-style: preserve-3d;
+    border: 3px double white;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2;
+    transform: translateZ(20px);
+}
+
+.front h1 {
+    position: absolute;
+    font-size: 2rem;
+    text-shadow: 0 0 10px black;
+    bottom: 10px;
+    left: 20px;
+    transform-style: preserve-3d;
+    transform: translateZ(20px);
+}
+
+.container-box-back {
+    background: #233e5db7;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   backface-visibility: hidden;
+}
+
+.container-box-back a{
+    background: var(--blue);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    transform-style: preserve-3d;
+    transform: translateZ(40px);
+    transition: 0.2s;
+}
+
+.container-box-back a:hover{
+    background:  white;
+    color:var(--blue);
+}
+
+.reviews{
+    height:100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(images/review-background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+
+.reviews .heading{
+    left: 0; /* Ensures it starts from the left edge */
+    width: 100%; /* Expands horizontally */
+    position:absolute;
+    margin-bottom: 400px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff; 
+    text-shadow: 0 0 20px #fff;
+}
+
+.reviews .slide-container .slide{
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 5px 10px #3337;
+    width: 450px;
+    height:300px;
+    padding: 20px;
+    margin:10px;
+    position: relative;
+    transform-style: preserve-3d;
+    margin-top:100px;
+    animation: slide .4s linear;
+}
+
+.reviews .slide-container .slide .icon{
+    position: absolute;
+    top:10px; right: 15px;
+    font-size: 90px;
+    color: var(--blue);
+}
+
+.reviews .slide-container .slide img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.reviews .slide-container .slide .user .user-info h3{
+    color: #333;
+    font-size:20px;
+}
+
+.reviews .slide-container .slide .user .user-info .stars i{
+    color: var(--blue);
+    font-size: 15px;
+}
+
+.reviews .slide-container .slide .text{
+    color: #333;
+    font-size:14px;
+    padding-top: 15px;
+    font-style:italic;
+}
+
+.reviews .slide-container{
+    display:none;
+}
+
+.reviews .slide-container.active{
+    display:block;
+}
+
+.reviews #next,
+.reviews #prev {
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px #3337;
+    margin-top:120px;
+    
+}
+
+.reviews #next:hover,
+.reviews #prev:hover{
+    background:var(--blue);
+    color:#fff;
+}
+
+.reviews .slide-container .slide > *{
+    animation: slideContent .2s linear .4s backwards;
+}
+
+
+@keyframes slide{
+    0%{
+        transform: rotateX(180deg);
+    }
+}
+
+@keyframes slideContent{
+    0%{
+        opacity: 0;
+        transform: scale(.5);
+    }
+}
 
 @media (min-aspect-ratio: 16/9) {
     .back-video {
@@ -516,6 +720,7 @@ input:checked + label .description {
         border:.1rem solid rgba(0, 0, 0, .1); /* Increased border width */
         display: block;
     }  
+
 }
 
 @media(max-width:450px){
@@ -530,6 +735,7 @@ input:checked + label .description {
     .quote .text-area .fancy-text{
         font-size: 30px;
     }
+
 }
 @keyframes logoAni {
     0%{
@@ -582,4 +788,3 @@ input:checked + label .description {
         transform: rotate(360deg);
     }
 }
-

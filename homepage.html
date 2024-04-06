@@ -4,14 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <title>OnlyCars official website</title>
 
   <!-- font awesome cdn link-->
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   
-  <!-- custom css file link-->
-  <link rel = "stylesheet" href = "styles.css">
 </head>
 
 <body>
@@ -26,8 +24,8 @@
            <a href ="#home"  style="--i:1;">home</a>
            <a href="#quote" style="--i:2;">about</a>
             <a href="#products" style="--i:3;">products</a>
-            <a href="#review" style="--i:2;">review</a>
-            <a href="contact" style="--i:1;">contact</a>
+            <a href="#reviews" style="--i:2;">review</a>
+            <a href="contact-us.php" style="--i:1;">contact</a>
       </nav>
 
     <div class = "icons">
@@ -35,7 +33,7 @@
       <a id="cart"  style="--i:2;"class="fas fa-shopping-cart"></a>
       <a id="profile" style="--i:3;" class="fas fa-user"></a>
     </div>
-
+    
   </header>
   <!--header ends-->
   <!-----home begins-->
@@ -78,13 +76,13 @@
    });   
 
    //make the button spin
-   document.querySelector('.home_button').addEventListener('click', function(){
+   document.querySelector('.home_button').addEventListener('click', function() {
     this.classList.remove('rotate'); // Remove rotate class if present
     void this.offsetWidth; // Trigger reflow to restart the animation
     this.classList.add('rotate'); // Add rotate class again
     this.style.opacity = '1';
-   });
-   
+ });
+
  </script>
 
  <!-----home sections ends-->
@@ -102,8 +100,7 @@
           <span class="hidden fancy-text">single</span>
           <span class="hidden fancy-text">pedal</span>
       </div>
-      <div class="writer">- Only<span class = "word">Cars</span>
-      </div>
+
       <script>
         const hiddenElements = document.querySelectorAll('.hidden');
         const observer = new IntersectionObserver((entries) => {
@@ -122,7 +119,7 @@
       
       const wordLength = hiddenElements.length;
       let currentIndex = 0;
-      const delay = 200; // Adjust delay as needed
+      const delay = 300; // Adjust delay as needed
       
       function showWords(element) {
       if (currentIndex < wordLength) {
@@ -140,17 +137,17 @@
  <!-----quote sections ends-->
 
  <!------about us begins-->
- <section class="about">
+ <section class="about" id = "about">
   <div class = "wrapper">
     <div class = "backstory-list">
-     <h1 class="heading"> <span> about </span> us </h1>
+      <h1 class="heading"> <span> about </span> us </h1>
      <input type = "radio" name = "slide" id = "c1" checked> 
      <label for = "c1" class = "card">
        <div class = "row">
        <div class="icon">1</div>
        <div class = "description">
         <h4>1980-1989</h4>
-        <p>In 1982, OnlyCars was founded in Austin, Texas by our founder Johnny Smith.</p>
+        <p>In 1982, OnlyCars was founded in Penang, George Town by our founder Johnny Smith.</p>
        </div>
        </div>
      </label>
@@ -192,9 +189,129 @@
   </div>
  </section>
  <!------about us ends-->
- <!----why choose us section-->
- <section class = "Our services">
-  <h1 class="heading"> <span>Our </span>  </h1>
- </section>
- <!----why choose us section-->
+
+ <!----products section starts-->
+  <section class = "products">
+    <h1 class="heading">Our products</h1>
+      <div class="row">
+
+       <!-- card one -->
+       <div class="container-box col-auto">
+       <div class="front item-a">
+         <h1>Sedan</h1>
+         <div class="container-box-back">
+         <a href="#">Show More.</a>
+         </div>
+         </div>
+      </div>
+
+      <!-- card two -->
+      <div class="container-box col-auto">
+        <div class="front item-b">
+          <h1>SUVs</h1>
+          <div class="container-box-back">
+          <a href="#">Show More.</a>
+          </div>
+          </div>
+       </div>
+
+       <!-- card three -->
+       <div class="container-box col-auto">
+        <div class="front item-c">
+          <h1>Hatchbacks</h1>
+          <div class="container-box-back">
+          <a href="#">Show More.</a>
+          </div>
+          </div>
+       </div>
+    </div>      
+
+  </section>
+ <!----products section-->
+ <!-----review section-->
+ <section class="reviews" id = "reviews">
+  <h1 class="heading">What our customers says about us</h1>
+  
+  <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+  <div class="slide-container active">
+      <div class="slide">
+          <i class="fas fa-quote-right icon"></i>
+          <div class="user">
+              <img src="images/profile-1.jpg">
+              <div class="user-info">
+                  <h3>John F Kennedy</h3>
+                  <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+              </div>
+              <p class="text">Bought a roofless Cadillac from OnlyCars. Needless to say, my head was blown. 10/10 would buy again!</p>
+          </div>
+      </div>
+  </div>
+
+   <div class="slide-container">
+      <div class="slide">
+          <i class="fas fa-quote-right icon" ></i>
+          <div class="user">
+              <img src="images/profile-2.jpg">
+              <div class="user-info">
+                  <h3>Donald Trump</h3>
+                  <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+              </div>
+              <p class="text">Let me tell you folks, this car, it's tremendous. Absolutely tremendous. I've driven a lot of cars in my time, believe me, and this one, it's the best. The best. It's got everything you need and more.</p>
+          </div>
+      </div>
+  </div>
+
+   <div class="slide-container">
+      <div class="slide">
+          <i class="fas fa-quote-right icon"></i>
+          <div class="user">
+              <img src="images/profile-3.jpg">
+              <div class="user-info">
+                  <h3>Sean Strickland</h3>
+                  <div class="stars">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                  </div>
+              </div>
+              <p class="text">This car, man, let me tell you, it's like driving a rocket on wheels. And don't even get me started on the interior. If you're looking for a thrill ride, look no further. Five stars all the way, dude.</p>
+          </div>
+      </div>
+  </div>
+  <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+  <script>
+    let slides = document.querySelectorAll('.slide-container');
+    let index = 0;
+
+    function next(){
+      slides[index].classList.remove('active');
+      index = (index + 1)% slides.length;
+      slides[index].classList.add('active')
+    }
+
+    function prev(){
+      slides[index].classList.remove('active');
+      index = (index - 1 + slides.length)% slides.length;
+      slides[index].classList.add('active')
+    }
+
+  </script>
+  
+</section>
+
+<!-----review section-->
 </body> 
