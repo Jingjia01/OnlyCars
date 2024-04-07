@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>OnlyCars Sell Cars</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+   <!-- Font Awesome CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/style_sellCars.css">
+</head>   
+<body>
+   <div class = "wrapper">
+    <div class = "photo-box">
+        <div class = "input-bx">
+            <h2 class = "upload-area-title">Upload File</h2>
+            <form action = "#" method = "POST" id = "upload-photo-form">
+                <input type = "file" id = "upload" accept = ".jpeg, .png, .svg, .avif" hidden>
+                <label for = "upload" class = "uploadLabel">
+                    <span><i class = "fa fa-cloud-upload"></i></span>
+                    <p>Click to upload</p>
+                </label>
+            </form>
+            <div id = "filewrapper">
+                <h3 class = "uploaded"> Uploaded Documents</h3>
+                <div class = "showfilebox">
+                    <div class = "left">
+                        <span class = "filetype">JPeg</span>
+                        <h3>Tesla_model_S_front.jpg</h3>
+                    </div>
+                    <div class = "right">
+                        <span>&times;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "info-box">
+            <form action = "#" method = "POST" id = "info-form">
+                <h2 class = "form-title">Enter your details here</h2>
+                <div class = "form-fields">
+                    
+                    <div class="form-group">
+                        <div id="error-messages"></div>
+                        <for label = "fName">First name: </for><br>
+                        <input type="text" class="FName" name = "FName" placeholder="First Name">
+                        <div id="error-messages"></div>
+                    </div>
+                    <div class="form-group">
+                        <for label = "lName">Last name: </for><br>
+                        <input type="text" class="LName" name = "LName" placeholder="Last Name">
+                        <div id="error-messages"></div>
+                    </div>
+                    <div class="form-group">
+                        <for label = "Phone">Phone: </for><br>
+                        <input type="number" class="Phone" name = "Phone" placeholder="Phone">
+                        <div id="error-messages"></div>
+                    </div>
+                    <!---car details-->
+                    <div class="form-group">
+                        <for label = "Car Brand">Car Brand: </for><br>
+                        <input type="text" class="CarBrand" name = "CarBrand" placeholder="Car Brand">
+                        <div id="error-messages"></div>
+                    </div>
+    
+                    <div class="form-group">
+                        <for label = "Car Model">Car Model: </for><br>
+                        <input type="text" class="CarModel" name = "CarModel" placeholder="Car Model">
+                        <div id="error-messages"></div>
+                    </div>
+    
+                    <div class="form-group">
+                        <for label = "Car Year">Car Year: </for><br>
+                        <input type="number" class="CarYear" name = "CarYear" placeholder="Car Year">
+                        <div id="error-messages"></div>
+                    </div>
+    
+                    <div class="form-group">
+                        <for label = "Car Variant">Car Variant: </for><br>
+                        <input type="text" class="CarVariant" name = "CarVariant" placeholder="Car Variant">
+                        <div id="error-messages"></div>
+                    </div>
+    
+                    <div class="form-group">
+                        <for label = "Engine">Engine: </for><br>
+                        <input type="number" class="Engine" name = "Engine" placeholder="Engine">
+                        <div id="error-messages"></div>
+                    </div>
+    
+                    <div class="form-group">
+                        <for label = "Transmission">Transmission: </for><br>
+                        <select id = "Transmission" name = "Transmission" class = "Transmission" size = '1'>
+                            <option value="manual">Manual</option>
+                            <option value = "auto">Auto</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="Mileage">Mileage: </label><br>
+                        <select id="Mileage" name="Mileage" class="Mileage" size='1'>
+                            <option value="10000">0 - 10,000 km</option>
+                            <option value="20000">10,001 - 20,000 km</option>
+                            <option value="30000">20,001 - 30,000 km</option>
+                            <option value="40000">30,001 - 40,000 km</option>
+                            <option value="50000">40,001 - 50,000 km</option>
+                            <option value="60000">50,001 - 60,000 km</option>
+                            <option value="70000">60,001 - 70,000 km</option>
+                            <option value="80000">70,001 - 80,000 km</option>
+                            <option value="90000">80,001 - 90,000 km</option>
+                            <option value="100000">90,001 - 100,000 km</option>
+                            <option value="110000">100,001 km or more</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-group">
+                        <for label = "Price">Ask price: </for><br>
+                        <input type="number" class="Price" name = "Price" placeholder="Your ask price">
+                        <div id="error-messages"></div>
+                    </div>
+    
+                </div>
+                <input type="submit" value="Submit information" class="submit-button">
+            </form>
+            
+        </div>
+       </div>
+       <script>
+        var form = document.getElementById('info-form');
+        form.addEventListener('submit', function(event){
+        event.preventDefault();
+  
+         
+         var firstName = form.querySelector('.FName').value;
+         var lastName = form.querySelector('.LName').value;
+         var phone = form.querySelector('.Phone').value;
+         var CarBrand = form.querySelector('.CarBrand').value;
+         var CarModel = form.querySelector('.CarModel').value;
+         var CarYear = form.querySelector('.CarYear').value;
+         var CarVariant = form.querySelector('.CarVariant').value;
+         var Engine = form.querySelector('.Engine').value;
+         var Price = form.querySelector('.Price').value;
+         
+         var errorMessages = [];
+  
+         if(firstName === ""){
+           errorMessages.push("Please enter your first name");
+           form.querySelector('.FName').nextElementSibling.innerHTML = "Please enter your first name";
+           form.querySelector('.FName').nextElementSibling.style.color = "red";
+         } else {
+           form.querySelector('.FNname').nextElementSibling.innerHTML = "";
+         }
+
+         if(lastName === ""){
+           errorMessages.push("Please enter your last name");
+           form.querySelector('.LName').nextElementSibling.innerHTML = "Please enter your last name";
+           form.querySelector('.LName').nextElementSibling.style.color = "red";
+         } else {
+           form.querySelector('.LNname').nextElementSibling.innerHTML = "";
+         }
+  
+
+        if (phone === '') {
+          errorMessages.push('Please enter your phone number');
+          form.querySelector('.Phone').nextElementSibling.innerHTML = 'Please enter your phone number';
+          form.querySelector('.Phone').nextElementSibling.style.color = 'red';
+        } else {
+          form.querySelector('.Phone').nextElementSibling.innerHTML = '';
+        }
+
+        if (CarBrand === '') {
+          errorMessages.push('Please enter your car brand');
+          form.querySelector('.CarBrand').nextElementSibling.innerHTML = 'Please enter your car brand';
+          form.querySelector('.CarBrand').nextElementSibling.style.color = 'red';
+        } else {
+          form.querySelector('.CarBrand').nextElementSibling.innerHTML = '';
+        }
+
+        if (CarModel === '') {
+          errorMessages.push('Please enter your car model');
+          form.querySelector('.CarModel').nextElementSibling.innerHTML = 'Please enter your car model';
+          form.querySelector('.CarModel').nextElementSibling.style.color = 'red';
+        } else {
+          form.querySelector('.CarModel').nextElementSibling.innerHTML = '';
+        }
+
+        if (CarYear === '') {
+          errorMessages.push('Please enter your car year');
+          form.querySelector('.CarYear').nextElementSibling.innerHTML = 'Please enter your car year';
+          form.querySelector('.CarYear').nextElementSibling.style.color = 'red';
+        } else {
+          form.querySelector('.CarYear').nextElementSibling.innerHTML = '';
+        }
+
+        if (CarVariant === '') {
+          errorMessages.push('Please enter your car variant');
+          form.querySelector('.CarVariant').nextElementSibling.innerHTML = 'Please enter your car variant';
+          form.querySelector('.CarVariant').nextElementSibling.style.color = 'red';
+        } else {
+          form.querySelector('.CarVariant').nextElementSibling.innerHTML = '';
+        }
+
+        if (Engine === '') {
+          errorMessages.push('Please enter your engine');
+          form.querySelector('.Engine').nextElementSibling.innerHTML = 'Please enter your engine';
+          form.querySelector('.Engine').nextElementSibling.style.color = 'red';
+        } else {
+          form.querySelector('.Engine').nextElementSibling.innerHTML = '';
+        }
+
+        if (Price === '') {
+          errorMessages.push('Please enter your price');
+          form.querySelector('.Price').nextElementSibling.innerHTML = 'Please enter your price';
+          form.querySelector('.Price').nextElementSibling.style.color = 'red';
+        } else {
+          form.querySelector('.Price').nextElementSibling.innerHTML = '';
+        }
+  
+        if(errorMessages.length === 0){
+          form.submit();
+         }
+        });
+
+       </script>
+     </div>
+
+</body>
+        
