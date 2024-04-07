@@ -24,7 +24,7 @@
             </form>
             <div id = "filewrapper">
                 <h3 class = "uploaded"> Uploaded Documents</h3>
-                <div class = "showfilebox">
+                <!--div class = "showfilebox">
                     <div class = "left">
                         <span class = "filetype">JPeg</span>
                         <h3>Tesla_model_S_front.jpg</h3>
@@ -32,7 +32,7 @@
                     <div class = "right">
                         <span>&times;</span>
                     </div>
-                </div>
+                </div!-->
             </div>
         </div>
         <div class = "info-box">
@@ -221,6 +221,44 @@
         });
 
        </script>
+       <script>
+        window.addEventListener("load", () => {
+            const input = document.getElementById("upload");
+            const filewrapper = document.getElementById("filewrapper");
+    
+            input.addEventListener("change", (e) => {
+                let fileName = e.target.files[0].name;
+                let filetype = fileName.split(".").pop();
+                fileshow(fileName, filetype);
+            });
+    
+            const fileshow = (fileName, fileType) => {
+                const showfileboxElem = document.createElement("div");
+                showfileboxElem.classList.add("showfilebox");
+                const leftElem = document.createElement("div");
+                leftElem.classList.add("left");
+                const fileTypeElem = document.createElement("span");
+                fileTypeElem.classList.add("filetype");
+                fileTypeElem.innerHTML = fileType;
+                leftElem.append(fileTypeElem);
+                const filetitleElem = document.createElement("h3");
+                filetitleElem.innerHTML = fileName;
+                leftElem.append(filetitleElem);
+                showfileboxElem.append(leftElem);
+                const rightElem = document.createElement("div");
+                rightElem.classList.add('right');
+                showfileboxElem.append(rightElem);
+                const crossElem = document.createElement("span");
+                crossElem.innerHTML = "&times;";
+                rightElem.append(crossElem);
+                filewrapper.append(showfileboxElem);
+
+                crossElem.addEventListener('click', () => {
+               filewrapper.removeChild(showfileboxElem);
+              });
+            };
+        });
+    </script>
      </div>
 
 </body>
