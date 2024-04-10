@@ -483,12 +483,21 @@ input:checked + label .description {
 
 .item-a {
     background-image: url(images/product-1.jpg);
+    background-size: cover;
+    background-position: center; 
+
 }
 .item-b {
     background-image: url(images/product-2.jpg);
+    background-size: cover;
+    background-position: center; 
+
 }
 .item-c {
     background-image: url(images/product-3.jpg);
+    background-size: cover;
+    background-position: center; 
+
 }
 
 .front::before {

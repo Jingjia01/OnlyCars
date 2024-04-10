@@ -16,7 +16,7 @@
         <div class = "input-bx">
             <h2 class = "upload-area-title">Upload File</h2>
             <form action = "#" method = "POST" id = "upload-photo-form">
-                <input type = "file" id = "upload" accept = ".jpeg, .png, .svg, .avif" hidden>
+                <input multiple="multiple" type = "file" id = "upload" accept = ".jpeg, .png, .svg, .avif" hidden>
                 <label for = "upload" class = "uploadLabel">
                     <span><i class = "fa fa-cloud-upload"></i></span>
                     <p>Click to upload</p>
@@ -39,7 +39,7 @@
             <form action = "#" method = "POST" id = "info-form">
                 <h2 class = "form-title">Enter your details here</h2>
                 <div class = "form-fields">
-                    
+                   
                     <div class="form-group">
                         <div id="error-messages"></div>
                         <for label = "fName">First name: </for><br>
@@ -127,100 +127,106 @@
        <script>
         var form = document.getElementById('info-form');
         form.addEventListener('submit', function(event){
-        event.preventDefault();
-  
-         
-         var firstName = form.querySelector('.FName').value;
-         var lastName = form.querySelector('.LName').value;
-         var phone = form.querySelector('.Phone').value;
-         var CarBrand = form.querySelector('.CarBrand').value;
-         var CarModel = form.querySelector('.CarModel').value;
-         var CarYear = form.querySelector('.CarYear').value;
-         var CarVariant = form.querySelector('.CarVariant').value;
-         var Engine = form.querySelector('.Engine').value;
-         var Price = form.querySelector('.Price').value;
-         
-         var errorMessages = [];
-  
-         if(firstName === ""){
-           errorMessages.push("Please enter your first name");
-           form.querySelector('.FName').nextElementSibling.innerHTML = "Please enter your first name";
-           form.querySelector('.FName').nextElementSibling.style.color = "red";
-         } else {
-           form.querySelector('.FNname').nextElementSibling.innerHTML = "";
-         }
-
-         if(lastName === ""){
-           errorMessages.push("Please enter your last name");
-           form.querySelector('.LName').nextElementSibling.innerHTML = "Please enter your last name";
-           form.querySelector('.LName').nextElementSibling.style.color = "red";
-         } else {
-           form.querySelector('.LNname').nextElementSibling.innerHTML = "";
-         }
-  
-
-        if (phone === '') {
-          errorMessages.push('Please enter your phone number');
-          form.querySelector('.Phone').nextElementSibling.innerHTML = 'Please enter your phone number';
-          form.querySelector('.Phone').nextElementSibling.style.color = 'red';
-        } else {
-          form.querySelector('.Phone').nextElementSibling.innerHTML = '';
-        }
-
-        if (CarBrand === '') {
-          errorMessages.push('Please enter your car brand');
-          form.querySelector('.CarBrand').nextElementSibling.innerHTML = 'Please enter your car brand';
-          form.querySelector('.CarBrand').nextElementSibling.style.color = 'red';
-        } else {
-          form.querySelector('.CarBrand').nextElementSibling.innerHTML = '';
-        }
-
-        if (CarModel === '') {
-          errorMessages.push('Please enter your car model');
-          form.querySelector('.CarModel').nextElementSibling.innerHTML = 'Please enter your car model';
-          form.querySelector('.CarModel').nextElementSibling.style.color = 'red';
-        } else {
-          form.querySelector('.CarModel').nextElementSibling.innerHTML = '';
-        }
-
-        if (CarYear === '') {
-          errorMessages.push('Please enter your car year');
-          form.querySelector('.CarYear').nextElementSibling.innerHTML = 'Please enter your car year';
-          form.querySelector('.CarYear').nextElementSibling.style.color = 'red';
-        } else {
-          form.querySelector('.CarYear').nextElementSibling.innerHTML = '';
-        }
-
-        if (CarVariant === '') {
-          errorMessages.push('Please enter your car variant');
-          form.querySelector('.CarVariant').nextElementSibling.innerHTML = 'Please enter your car variant';
-          form.querySelector('.CarVariant').nextElementSibling.style.color = 'red';
-        } else {
-          form.querySelector('.CarVariant').nextElementSibling.innerHTML = '';
-        }
-
-        if (Engine === '') {
-          errorMessages.push('Please enter your engine');
-          form.querySelector('.Engine').nextElementSibling.innerHTML = 'Please enter your engine';
-          form.querySelector('.Engine').nextElementSibling.style.color = 'red';
-        } else {
-          form.querySelector('.Engine').nextElementSibling.innerHTML = '';
-        }
-
-        if (Price === '') {
-          errorMessages.push('Please enter your price');
-          form.querySelector('.Price').nextElementSibling.innerHTML = 'Please enter your price';
-          form.querySelector('.Price').nextElementSibling.style.color = 'red';
-        } else {
-          form.querySelector('.Price').nextElementSibling.innerHTML = '';
-        }
-  
-        if(errorMessages.length === 0){
-          form.submit();
-         }
+            event.preventDefault();
+      
+            var firstName = form.querySelector('.FName').value;
+            var lastName = form.querySelector('.LName').value;
+            var phone = form.querySelector('.Phone').value;
+            var carBrand = form.querySelector('.CarBrand').value;
+            var carModel = form.querySelector('.CarModel').value;
+            var carYear = form.querySelector('.CarYear').value;
+            var carVariant = form.querySelector('.CarVariant').value;
+            var engine = form.querySelector('.Engine').value;
+            var price = form.querySelector('.Price').value;
+             
+            var errorMessages = [];
+    
+            if(firstName === ""){
+                errorMessages.push("Please enter your first name");
+                displayErrorMessage('.FName', "Please enter your first name");
+            } else {
+                clearErrorMessage('.FName');
+            }
+    
+            if(lastName === ""){
+                errorMessages.push("Please enter your last name");
+                displayErrorMessage('.LName', "Please enter your last name");
+            } else {
+                clearErrorMessage('.LName');
+            }
+    
+            if(phone === ""){
+                errorMessages.push("Please enter your phone number");
+                displayErrorMessage('.Phone', "Please enter your phone number");
+            } else {
+                clearErrorMessage('.Phone');
+            }
+    
+            if(carBrand === ""){
+                errorMessages.push("Please enter your car brand");
+                displayErrorMessage('.CarBrand', "Please enter your car brand");
+            } else {
+                clearErrorMessage('.CarBrand');
+            }
+    
+            if(carModel === ""){
+                errorMessages.push("Please enter your car model");
+                displayErrorMessage('.CarModel', "Please enter your car model");
+            } else {
+                clearErrorMessage('.CarModel');
+            }
+    
+            if(carYear === ""){
+                errorMessages.push("Please enter your car year");
+                displayErrorMessage('.CarYear', "Please enter your car year");
+            } else {
+                clearErrorMessage('.CarYear');
+            }
+    
+            if(carVariant === ""){
+                errorMessages.push("Please enter your car variant");
+                displayErrorMessage('.CarVariant', "Please enter your car variant");
+            } else {
+                clearErrorMessage('.CarVariant');
+            }
+    
+            if(engine === ""){
+                errorMessages.push("Please enter your engine");
+                displayErrorMessage('.Engine', "Please enter your engine");
+            } else {
+                clearErrorMessage('.Engine');
+            }
+    
+            if(price === ""){
+                errorMessages.push("Please enter your price");
+                displayErrorMessage('.Price', "Please enter your price");
+            } 
+            else if (price < 0){
+                errorMessages.push("Price cannot be negative");
+                displayErrorMessage('.Price', "Price cannot be negative");
+            }
+            
+            else {
+                clearErrorMessage('.Price');
+            }
+    
+            if(errorMessages.length === 0){
+                form.submit();
+            }
         });
+    
+        function displayErrorMessage(selector, message) {
+            var errorMessageElement = form.querySelector(selector).nextElementSibling;
+            errorMessageElement.innerHTML = message;
+            errorMessageElement.style.color = "red";
+        }
+    
+        function clearErrorMessage(selector) {
+            var errorMessageElement = form.querySelector(selector).nextElementSibling;
+            errorMessageElement.innerHTML = "";
+        }
+    </script>
 
-       </script>
        <script>
         window.addEventListener("load", () => {
             const input = document.getElementById("upload");

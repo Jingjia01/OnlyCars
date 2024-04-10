@@ -71,6 +71,7 @@
                 </div>
             </div>
         </section>
+        
         <script>
      var form = document.getElementById('contactForm');
 
