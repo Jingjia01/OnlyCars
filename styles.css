@@ -374,7 +374,6 @@ header .fa-bars{
     width: 520px;
     opacity: 0;
     transform: translateY(30px);
-    margin-left: -40px;
     transition-delay: .3s;
     transition: all .3s ease;
 }
@@ -437,7 +436,7 @@ input:checked + label .description {
     text-shadow: 0 0 20px #fff;
 }
 
-.row {
+.products .row {
     position:absolute;
     display: flex;
     justify-content: center;
@@ -703,6 +702,10 @@ input:checked + label .description {
         height: 300px;
        }
 
+    .products .row{
+        gap:20px;
+    }
+
 }
 
 @media (max-width:768px){
@@ -744,6 +747,10 @@ input:checked + label .description {
 
     .card > .row > .description{
         width: 400px;
+    }
+
+    .products .row{
+        gap:12px;
     }
     
 
