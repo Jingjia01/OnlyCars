@@ -9,6 +9,14 @@
 
   <!-- font awesome cdn link-->
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
   
 </head>
 
@@ -316,9 +324,33 @@
     }
 
   </script>
-  
 </section>
 
 <!-----review section-->
-<!--script src="https://cdn.jsdelivr.net/gh/edenai/yodabot@0dc64f2/embed.js?project=c84dd822-c5b6-45af-9b22-b2759f9025a3&provider=openai&model=gpt-4&k=5"></script!-->
+<!----chatbot-->
+ <button class="chatbot-toggler">
+   <span class="fas fa-comment-dots"></span>
+   <span class="fa fa-close"></span>
+ </button>
+ <div class="chatbot">
+   <div class = "header">
+     <h2>OnlyCars Chatbot</h2>
+     <span class="close-btn fa fa-close"></span>
+   </header>
+   <ul class="chatbox">
+    <li class="chat incoming">
+       <span class="fas fa-robot"></span>
+      <p>How can I help you today?</p>
+     </li>
+   </ul>
+   <div class="chat-input">
+     <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+     <span id="send-btn" class="material-symbols-rounded">send</span>
+   </div>
+ </div>
+ <!-- Import the mainModule.js file -->
+ <script type="module" src="chatbot_folder/mainModule.js"></script>
+ <!-- Import the main JavaScript file -->
+ <script type="module" src="chatbot_folder/scriptChatBot.js" defer></script>
+ <!----chatbot-->
 </body> 
