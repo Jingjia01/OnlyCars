@@ -72,7 +72,7 @@
             </div>
         </section>
         
-        <script>
+<script>
      var form = document.getElementById('contactForm');
 
 form.addEventListener('submit', function(event) {
@@ -150,44 +150,79 @@ form.addEventListener('submit', function(event) {
  }
  </script>
         
-<?php
-   $servername = 'localhost';
-   $username = 'root';
-   $dbName = "onlycars";
-   $conn = mysqli_connect($servername, $username, "", $dbName);
-   
-   if(!$conn){
-    die("Connection failed" .mysqli_error_connect()); 
-   }
+        <?php
+$servername = 'localhost';
+$username = 'root';
+$dbName = "onlycars";
+$conn = mysqli_connect($servername, $username, "", $dbName);
 
-   if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Prepare an insert statement
-    $stmt = mysqli_prepare($conn, "INSERT INTO FormData(firstName, lastName, email, phone, feedback) VALUES (?, ?, ?, ?, ?)");
-
-    // Bind variables to the prepared statement as parameters
-    mysqli_stmt_bind_param($stmt, "sssss", $firstName, $lastName, $email, $phone, $feedback);
-
-    // Set parameters
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $feedback = $_POST['message'];
-
-    // Attempt to execute the prepared statement
-    if(mysqli_stmt_execute($stmt)){
-        echo "Records inserted successfully.";
-    } else{
-        echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
-    }
-
-    // Close statement
-    mysqli_stmt_close($stmt);
+if (!$conn) {
+    die("Connection failed" . mysqli_error_connect());
 }
 
-// Close connection
-mysqli_close($conn);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Define error array to store validation errors
+    $errors = array();
 
+    // Validate first name
+    $firstName = $_POST['firstName'];
+    if (empty($firstName)) {
+        $errors['firstName'] = "Please enter your first name";
+    }
+
+    // Validate last name
+    $lastName = $_POST['lastName'];
+    if (empty($lastName)) {
+        $errors['lastName'] = "Please enter your last name";
+    }
+
+    // Validate email
+    $email = $_POST['email'];
+    if (empty($email)) {
+        $errors['email'] = "Please enter your email";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = "Please enter a valid email address";
+    }
+
+    // Validate phone number
+    $phone = $_POST['phone'];
+    if (empty($phone)) {
+        $errors['phone'] = "Please enter your phone number";
+    }
+
+    // Validate feedback/message
+    $feedback = $_POST['message'];
+    if (empty($feedback)) {
+        $errors['feedback'] = "Please enter your message";
+    }
+
+    // If there are no errors, proceed with inserting data into the database
+    if (empty($errors)) {
+        // Prepare an insert statement
+        $stmt = mysqli_prepare($conn, "INSERT INTO FormData(firstName, lastName, email, phone, feedback) VALUES (?, ?, ?, ?, ?)");
+
+        // Bind variables to the prepared statement as parameters
+        mysqli_stmt_bind_param($stmt, "sssss", $firstName, $lastName, $email, $phone, $feedback);
+
+        // Attempt to execute the prepared statement
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Records inserted successfully.";
+        } else {
+            echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
+    } else {
+        // Output validation errors
+        foreach ($errors as $error) {
+            echo $error . "<br>";
+        }
+    }
+}
+
+  // Close connection
+  mysqli_close($conn);
 ?>
 
 </body>

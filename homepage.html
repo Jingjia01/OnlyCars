@@ -9,7 +9,9 @@
 
   <!-- font awesome cdn link-->
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <script type="importmap">
     {
       "imports": {
@@ -327,30 +329,56 @@
 </section>
 
 <!-----review section-->
-<!----chatbot-->
+
+
+ <!---footer-->
+ <footer class = "footer">
+  <div class = "inner-footer">
+    <div class = "social-links">
+       <li class = "social-items"><a href = "#"><i class = "fab fa-facebook"></i></a></li>
+       <li class = "social-items"><a href = "#"><i class = "fab fa-twitter"></i></a></li>
+       <li class = "social-items"><a href = "#"><i class = "fab fa-linkedin-in"></i></a></li>
+    </div>
+
+    <div class = "quick-links">
+      <li><a href ="#home">home</a></li>
+      <li><a href="#quote">about</a></li>
+      <li><a href="#products">products</a></li>
+      <li><a href="#reviews">review</a></li>
+      <li><a href="contact-us.php">contact</a></li>
+    </div>
+
+    <div class = "outer-footer">
+      Copyright &copy; OnlyCars. All rights reserved
+    </div>
+  </div>
+</footer>
+  <!---footer-->
+
+  <!----chatbot-->
  <button class="chatbot-toggler">
-   <span class="fas fa-comment-dots"></span>
-   <span class="fa fa-close"></span>
- </button>
- <div class="chatbot">
-   <div class = "header">
-     <h2>OnlyCars Chatbot</h2>
-     <span class="close-btn fa fa-close"></span>
-   </header>
-   <ul class="chatbox">
-    <li class="chat incoming">
-       <span class="fas fa-robot"></span>
-      <p>How can I help you today?</p>
-     </li>
-   </ul>
-   <div class="chat-input">
-     <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
-     <span id="send-btn" class="material-symbols-rounded">send</span>
-   </div>
- </div>
- <!-- Import the mainModule.js file -->
- <script type="module" src="chatbot_folder/mainModule.js"></script>
- <!-- Import the main JavaScript file -->
- <script type="module" src="chatbot_folder/scriptChatBot.js" defer></script>
- <!----chatbot-->
+  <span class="fas fa-comment-dots"></span>
+  <span class="fa fa-times-circle"></span>
+</button>
+<div class="chatbot">
+  <div class = "header">
+    <h2>OnlyCars Chatbot</h2>
+    <span class="close-btn fa fa-times-circle"></span>
+  </header>
+  <ul class="chatbox">
+   <li class="chat incoming">
+      <span class="fas fa-robot"></span>
+     <p>How can I help you today?</p>
+    </li>
+  </ul>
+  <div class="chat-input">
+    <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+    <span id="send-btn" class="material-symbols-rounded">send</span>
+  </div>
+</div>
+<!-- Import the mainModule.js file -->
+<script type="module" src="chatbot_folder/mainModule.js"></script>
+<!-- Import the main JavaScript file -->
+<script type="module" src="chatbot_folder/scriptChatBot.js" defer></script>
+<!----chatbot-->
 </body> 
